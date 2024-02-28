@@ -22,6 +22,15 @@ class GetLeftIndexUseCaseTest {
     }
 
     @Test
+    fun `when the list has only one element and the new element has hashPosition same to the existing position, then HashLocationOccupied is thrown`() {
+        assertThrows(HashLocationOccupied::class.java) {
+            SUT.execute(
+                listOf(createNodeUseCase.createNodeTesting("Title 1", "aaaaa")),
+                generateHashUseCase.generateHash("aaaaa"))
+        }
+    }
+
+    @Test
     fun `when the list has only one element and the new element has hashPosition greater than the existing element, return position 0`() {
         assertEquals(1, SUT.execute(listOf(createNodeUseCase.createNodeTesting("Title 1", "aaaaa")), HASH_SIZE - 1))
     }

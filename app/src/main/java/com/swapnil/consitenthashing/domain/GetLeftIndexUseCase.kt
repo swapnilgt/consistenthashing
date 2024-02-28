@@ -13,7 +13,9 @@ internal class GetLeftIndexUseCase {
             return 0
         }
 
-        if(list[0].hashPosition > targetHashPosition) {
+        if(list[0].hashPosition == targetHashPosition) {
+            throw HashLocationOccupied()
+        } else if(list[0].hashPosition > targetHashPosition) {
             return 0
         } else if(list[list.size - 1].hashPosition < targetHashPosition) {
             return list.size
