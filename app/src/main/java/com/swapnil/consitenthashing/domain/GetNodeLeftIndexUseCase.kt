@@ -3,7 +3,7 @@ package com.swapnil.consitenthashing.domain
 import com.swapnil.consitenthashing.domain.pojo.AbstractHashElement
 import com.swapnil.consitenthashing.exception.HashLocationOccupied
 
-internal class GetLeftIndexUseCase {
+internal class GetNodeLeftIndexUseCase {
 
     fun execute(
         list: List<AbstractHashElement>,

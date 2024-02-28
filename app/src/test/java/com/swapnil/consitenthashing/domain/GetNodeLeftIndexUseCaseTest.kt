@@ -5,9 +5,9 @@ import com.swapnil.consitenthashing.exception.HashLocationOccupied
 import org.junit.Assert.*
 import org.junit.Test
 
-class GetLeftIndexUseCaseTest {
+class GetNodeLeftIndexUseCaseTest {
 
-    private val SUT = GetLeftIndexUseCase()
+    private val SUT = GetNodeLeftIndexUseCase()
     private val generateHashUseCase = GenerateHashUseCase()
     private val createNodeUseCase = CreateNodeUseCase(generateHashUseCase)
 
