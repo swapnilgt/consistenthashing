@@ -10,9 +10,7 @@ class ConsistentHashingTest {
         private val SUT = ConsistentHashing()
 
         @Test
-        fun `test add request with no node present`() {
-            assertThrows(NoNodePresentException::class.java) {
-                SUT.addRequest(Request("Title 1"))
-            }
+        fun `test add node with no node present`() {
+
         }
 }

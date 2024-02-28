@@ -2,10 +2,8 @@ package com.swapnil.consitenthashing.domain.pojo
 
 import java.util.UUID
 
-internal data class Request(
-    val title: String,
-    val id: String = UUID.randomUUID().toString()
-) {
+internal class Request(
+    title: String
+): AbstractHashElement(title) {
     var node: Node? = null
-    var hashPosition: Int = -1
 }

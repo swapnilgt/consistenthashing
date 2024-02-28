@@ -1,19 +1,19 @@
 package com.swapnil.consitenthashing.domain
 
-import com.swapnil.consitenthashing.domain.pojo.Node
+import com.swapnil.consitenthashing.domain.pojo.AbstractHashElement
 import com.swapnil.consitenthashing.exception.HashLocationOccupied
 
 internal class GetLeftIndexUseCase {
 
     fun execute(
-        list: List<Node>,
+        list: List<AbstractHashElement>,
         targetHashPosition: Int
     ): Int {
         if(list.isEmpty()) {
             return 0
         }
 
-        if(list[0].hashPosition == targetHashPosition) {
+        if(list.size == 1 && list[0].hashPosition == targetHashPosition) {
             throw HashLocationOccupied()
         } else if(list[0].hashPosition > targetHashPosition) {
             return 0
@@ -24,7 +24,7 @@ internal class GetLeftIndexUseCase {
         return binarySearchLeft(list, targetHashPosition)
     }
 
-    private fun binarySearchLeft(list: List<Node>, targetHashPosition: Int): Int {
+    private fun binarySearchLeft(list: List<AbstractHashElement>, targetHashPosition: Int): Int {
         var left = 0
         var right = list.size - 1
 
