@@ -5,9 +5,12 @@ import com.swapnil.consitenthashing.exception.HashLocationOccupied
 import org.junit.Assert.*
 import org.junit.Test
 
-class GetNodeLeftIndexUseCaseTest {
+/**
+ * This use case is responsible for finding the correct index for the new node to be inserted.
+ */
+class GetIndexForAddingNodeUseCaseTest {
 
-    private val SUT = GetNodeLeftIndexUseCase()
+    private val SUT = GetIndexForAddingNodeUseCase()
     private val generateHashUseCase = GenerateHashUseCase()
     private val createNodeUseCase = CreateNodeUseCase(generateHashUseCase)
 
