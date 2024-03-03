@@ -8,7 +8,7 @@ import org.junit.Test
 /**
  * This use case is responsible for finding the correct index for the new Request to be inserted.
  */
-class GetIndexForAddRequestUseCaseTest {
+class GetNodeIndexForAddRequestUseCaseTest {
 
     private val SUT = GetIndexForAddingRequestUseCase()
     private val generateHashUseCase = GenerateHashUseCase()

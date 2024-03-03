@@ -8,11 +8,10 @@ internal class ConsistentHashing {
 
     private val nodes = mutableListOf<Node>()
     private val requests = mutableListOf<Request>()
+    private val addRequestUseCase = AddRequestUseCase()
 
     fun addRequest(request: Request) {
-        if(nodes.isEmpty()) {
-            throw NoNodePresentException()
-        }
+
     }
 
     fun addNode(node: Node) {
