@@ -10,7 +10,7 @@ import org.junit.Test
  */
 class GetNodeIndexForAddRequestUseCaseTest {
 
-    private val SUT = GetIndexForAddingRequestUseCase()
+    private val SUT = GetNodeIndexForAddingRequestUseCase()
     private val generateHashUseCase = GenerateHashUseCase()
     private val createNodeUseCase = CreateNodeUseCase(generateHashUseCase)
 

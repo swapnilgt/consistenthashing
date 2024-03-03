@@ -3,7 +3,7 @@ package com.swapnil.consitenthashing.domain
 import com.swapnil.consitenthashing.domain.pojo.AbstractHashElement
 import com.swapnil.consitenthashing.exception.NoNodePresentException
 
-internal class GetIndexForAddingRequestUseCase {
+internal class GetNodeIndexForAddingRequestUseCase {
 
     fun execute(
         list: List<AbstractHashElement>,
