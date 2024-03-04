@@ -7,7 +7,7 @@ import org.junit.Test
 
 class ConsistentHashingTest {
 
-        private val SUT = ConsistentHashing()
+        //private val SUT = ConsistentHashing()
 
         @Test
         fun `test add node with no node present`() {

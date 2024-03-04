@@ -1,7 +1,6 @@
 package com.swapnil.consitenthashing.domain
 
 import com.swapnil.consitenthashing.domain.pojo.AbstractHashElement
-import com.swapnil.consitenthashing.exception.HashLocationOccupied
 
 internal class GetIndexForAddingRequestUseCase {
 
