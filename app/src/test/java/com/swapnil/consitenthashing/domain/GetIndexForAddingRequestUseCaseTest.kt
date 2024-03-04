@@ -56,7 +56,13 @@ class GetIndexForAddingRequestUseCaseTest {
     fun `when the list has more than one element, we return the appropriate element`() {
         val list = getMockedRequestList(createRequestUseCase)
         assertEquals(3, SUT.execute(list, generateHashUseCase.generateHash("aaaam")))
-
+        assertEquals(1, SUT.execute(list, generateHashUseCase.generateHash("aaaad")))
+        assertEquals(2, SUT.execute(list, generateHashUseCase.generateHash("aaaag")))
+        assertEquals(2, SUT.execute(list, generateHashUseCase.generateHash("aaaal")))
+        assertEquals(3, SUT.execute(list, generateHashUseCase.generateHash("aaaam")))
+        assertEquals(3, SUT.execute(list, generateHashUseCase.generateHash("aaaam")))
+        assertEquals(4, SUT.execute(list, generateHashUseCase.generateHash("aaaaw")))
+        assertEquals(4, SUT.execute(list, generateHashUseCase.generateHash("aaaax")))
     }
 
 }
