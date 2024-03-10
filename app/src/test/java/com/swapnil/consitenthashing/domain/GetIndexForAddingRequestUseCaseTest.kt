@@ -1,6 +1,8 @@
 package com.swapnil.consitenthashing.domain
 
 import com.swapnil.consitenthashing.TestConstants.Companion.getMockedRequestList
+import com.swapnil.consitenthashing.domain.request.CreateRequestUseCase
+import com.swapnil.consitenthashing.domain.request.GetIndexForAddingRequestUseCase
 import org.junit.Assert.*
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.swapnil.consitenthashing.domain
+package com.swapnil.consitenthashing.domain.request
 
 import com.swapnil.consitenthashing.domain.pojo.Node
 import com.swapnil.consitenthashing.domain.pojo.Request

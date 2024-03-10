@@ -1,4 +1,4 @@
-package com.swapnil.consitenthashing.domain
+package com.swapnil.consitenthashing.domain.node
 
 import com.swapnil.consitenthashing.domain.pojo.AbstractHashElement
 import com.swapnil.consitenthashing.exception.HashLocationOccupied

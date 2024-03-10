@@ -1,6 +1,8 @@
 package com.swapnil.consitenthashing.domain
 
 import com.swapnil.consitenthashing.TestConstants.Companion.getMockedNodesList
+import com.swapnil.consitenthashing.domain.node.CreateNodeUseCase
+import com.swapnil.consitenthashing.domain.node.GetIndexForAddingNodeUseCase
 import com.swapnil.consitenthashing.exception.HashLocationOccupied
 import org.junit.Assert.*
 import org.junit.Test

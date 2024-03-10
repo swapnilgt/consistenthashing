@@ -1,7 +1,7 @@
 package com.swapnil.consitenthashing
 
-import com.swapnil.consitenthashing.domain.CreateNodeUseCase
-import com.swapnil.consitenthashing.domain.CreateRequestUseCase
+import com.swapnil.consitenthashing.domain.node.CreateNodeUseCase
+import com.swapnil.consitenthashing.domain.request.CreateRequestUseCase
 import com.swapnil.consitenthashing.domain.pojo.Node
 import com.swapnil.consitenthashing.domain.pojo.Request
 

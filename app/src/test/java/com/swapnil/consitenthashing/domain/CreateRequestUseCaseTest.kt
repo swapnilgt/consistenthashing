@@ -1,5 +1,6 @@
 package com.swapnil.consitenthashing.domain
 
+import com.swapnil.consitenthashing.domain.request.CreateRequestUseCase
 import org.junit.Assert.*
 import org.junit.Test
 import java.util.UUID

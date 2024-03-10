@@ -1,7 +1,7 @@
-package com.swapnil.consitenthashing.domain
+package com.swapnil.consitenthashing.domain.request
 
 import androidx.annotation.VisibleForTesting
-import com.swapnil.consitenthashing.domain.pojo.Node
+import com.swapnil.consitenthashing.domain.GenerateHashUseCase
 import com.swapnil.consitenthashing.domain.pojo.Request
 
 internal class CreateRequestUseCase(

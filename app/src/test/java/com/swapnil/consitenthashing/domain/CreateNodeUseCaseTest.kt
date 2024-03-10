@@ -1,5 +1,6 @@
 package com.swapnil.consitenthashing.domain
 
+import com.swapnil.consitenthashing.domain.node.CreateNodeUseCase
 import org.junit.Assert.*
 import org.junit.Test
 import java.util.UUID

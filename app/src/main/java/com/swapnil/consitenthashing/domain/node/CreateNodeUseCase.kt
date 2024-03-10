@@ -1,6 +1,7 @@
-package com.swapnil.consitenthashing.domain
+package com.swapnil.consitenthashing.domain.node
 
 import androidx.annotation.VisibleForTesting
+import com.swapnil.consitenthashing.domain.GenerateHashUseCase
 import com.swapnil.consitenthashing.domain.pojo.Node
 
 internal data class CreateNodeUseCase(
