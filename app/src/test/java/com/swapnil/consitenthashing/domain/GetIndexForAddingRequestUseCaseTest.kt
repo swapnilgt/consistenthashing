@@ -49,7 +49,7 @@ class GetIndexForAddingRequestUseCaseTest {
     @Test
     fun `when the new element hashPosition is greater than the last element, return appropriate index`() {
         val list = getMockedRequestList(createRequestUseCase)
-        assertEquals(list.size, SUT.execute(list, generateHashUseCase.generateHash("aaaaz")))
+        assertEquals(0, SUT.execute(list, generateHashUseCase.generateHash("aaaaz")))
     }
 
     @Test

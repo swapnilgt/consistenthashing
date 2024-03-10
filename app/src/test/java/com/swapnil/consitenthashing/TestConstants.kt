@@ -10,11 +10,11 @@ internal class TestConstants {
 
         fun getMockedNodesList(createNodeUseCase: CreateNodeUseCase): List<Node> {
             return listOf(
-                createNodeUseCase.createNodeTesting("Title 1", "aaaac"), // 0
-                createNodeUseCase.createNodeTesting("Title 1", "aaaaf"), // 1
-                createNodeUseCase.createNodeTesting("Title 1", "aaaal"), // 2
-                createNodeUseCase.createNodeTesting("Title 1", "aaaat"), // 3
-                createNodeUseCase.createNodeTesting("Title 1", "aaaax") // 4
+                createNodeUseCase.createNodeTesting("Node 1", "aaaac"), // 0
+                createNodeUseCase.createNodeTesting("Node 2", "aaaaf"), // 1
+                createNodeUseCase.createNodeTesting("Node 3", "aaaal"), // 2
+                createNodeUseCase.createNodeTesting("Node 4", "aaaat"), // 3
+                createNodeUseCase.createNodeTesting("Node 5", "aaaax") // 4
             )
         }
 

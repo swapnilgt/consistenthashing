@@ -26,11 +26,7 @@ internal class GetIndexForAddingRequestUseCase {
         }
 
         // Conditions for edge cases ...
-        if(list[list.size - 1].hashPosition < targetHashPosition) {
-            return list.size
-        }
-
-        if(list[0].hashPosition >= targetHashPosition) {
+        if(list[list.size - 1].hashPosition < targetHashPosition || list[0].hashPosition >= targetHashPosition) {
             return 0
         }
 
