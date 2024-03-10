@@ -3,6 +3,7 @@ package com.swapnil.consitenthashing.domain
 import com.swapnil.consitenthashing.TestConstants.Companion.getMockedNodesList
 import com.swapnil.consitenthashing.domain.pojo.Node
 import com.swapnil.consitenthashing.domain.pojo.Request
+import com.swapnil.consitenthashing.exception.DuplicateRequestException
 import com.swapnil.consitenthashing.exception.NoNodePresentException
 import org.junit.Assert.*
 import org.junit.Test
@@ -48,6 +49,24 @@ class AddRequestUseCaseTest {
         assertEquals(1, requests.size)
         assertEquals(request, requests[0])
         assertEquals(nodes[0], requests[0].node)
+    }
+
+    @Test
+    fun `addRequest() when request is already present, throw duplicate request exception`() {
+        // Arrange
+        val request = createRequestUseCase.createRequestTesting("Request 1", "aaaaa")
+        val requests = mutableListOf<Request>()
+
+        val nodes = mutableListOf(createNodeUseCase.createNodeTesting("Node 1",
+            "aaaaa"))
+
+        // Act
+        SUT.addRequest(request, nodes, requests)
+
+        // Assert
+        assertThrows(DuplicateRequestException::class.java) {
+            SUT.addRequest(request, nodes, requests)
+        }
     }
 
     @Test
