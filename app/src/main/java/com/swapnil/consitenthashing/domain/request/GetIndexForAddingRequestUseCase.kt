@@ -16,9 +16,7 @@ internal class GetIndexForAddingRequestUseCase {
 
         // Conditions for single element....
         if(list.size == 1) {
-            return if(list[0].hashPosition == targetHashPosition) {
-                0
-            } else if(list[0].hashPosition > targetHashPosition) {
+            return if(list[0].hashPosition >= targetHashPosition) {
                 0
             } else {
                 1
@@ -26,8 +24,10 @@ internal class GetIndexForAddingRequestUseCase {
         }
 
         // Conditions for edge cases ...
-        if(list[list.size - 1].hashPosition < targetHashPosition || list[0].hashPosition >= targetHashPosition) {
+        if(list[0].hashPosition >= targetHashPosition) {
             return 0
+        } else if(list[list.size - 1].hashPosition < targetHashPosition) {
+            return list.size
         }
 
         return binarySearchRight(list, targetHashPosition)

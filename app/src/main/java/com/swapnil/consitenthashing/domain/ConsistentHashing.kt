@@ -7,7 +7,9 @@ import com.swapnil.consitenthashing.domain.request.AddRequestUseCase
 import com.swapnil.consitenthashing.domain.request.CreateRequestUseCase
 import com.swapnil.consitenthashing.domain.request.GetIndexForAddingRequestUseCase
 import com.swapnil.consitenthashing.domain.request.GetNodeIndexForAddingRequestUseCase
+import com.swapnil.consitenthashing.domain.request.RemoveRequestUseCase
 import com.swapnil.consitenthashing.exception.NoNodePresentException
+import com.swapnil.consitenthashing.exception.RequestNotPresentException
 
 internal class ConsistentHashing(
     private val createNodeUseCase: CreateNodeUseCase,
@@ -24,9 +26,20 @@ internal class ConsistentHashing(
         getNodeIndexForAddingRequestUseCase
     )
 
+    private val remoteRequestUseCase = RemoveRequestUseCase()
+
     @Throws(NoNodePresentException::class)
     fun addRequest(request: Request) {
         addRequestUseCase.addRequest(request, nodes, requests)
+    }
+
+    @Throws(RequestNotPresentException::class)
+    fun removeRequest(request: Request) {
+        remoteRequestUseCase.removeRequest(request, requests)
+    }
+
+    fun addNode(node: Node) {
+
     }
 
 }

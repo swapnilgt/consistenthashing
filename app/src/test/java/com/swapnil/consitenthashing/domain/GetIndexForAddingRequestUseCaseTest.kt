@@ -19,8 +19,8 @@ class GetIndexForAddingRequestUseCaseTest {
     }
 
     @Test
-    fun `when the list has only one element and the new element has hashPosition smaller than the existing element, return 0`() {
-        assertEquals(0,
+    fun `when the list has only one element and the new element has hashPosition smaller than the existing element, return 1`() {
+        assertEquals(1,
             SUT.execute(listOf(createRequestUseCase.createRequest("Request 1")),
                 0))
     }
@@ -51,7 +51,7 @@ class GetIndexForAddingRequestUseCaseTest {
     @Test
     fun `when the new element hashPosition is greater than the last element, return appropriate index`() {
         val list = getMockedRequestList(createRequestUseCase)
-        assertEquals(0, SUT.execute(list, generateHashUseCase.generateHash("aaaaz")))
+        assertEquals(list.size, SUT.execute(list, generateHashUseCase.generateHash("aaaaz")))
     }
 
     @Test

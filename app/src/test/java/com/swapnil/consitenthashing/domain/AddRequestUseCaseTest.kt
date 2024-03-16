@@ -106,28 +106,28 @@ class AddRequestUseCaseTest {
         // Assert
         assertEquals(8, requests.size)
 
-        assertEquals(request6, requests[0])
-        assertEquals(nodes[0], request6.node)
-
-        assertEquals(request0, requests[1])
+        assertEquals(request0, requests[0])
         assertEquals(nodes[0], request0.node)
 
-        assertEquals(request1, requests[2])
+        assertEquals(request1, requests[1])
         assertEquals(nodes[0], request1.node)
 
-        assertEquals(request2, requests[3])
+        assertEquals(request2, requests[2])
         assertEquals(nodes[1], request2.node)
 
-        assertEquals(request3, requests[4])
+        assertEquals(request3, requests[3])
         assertEquals(nodes[2], request3.node)
 
-        assertEquals(request42, requests[5])
+        assertEquals(request42, requests[4])
         assertEquals(nodes[3], request41.node)
 
-        assertEquals(request41, requests[6])
+        assertEquals(request41, requests[5])
         assertEquals(nodes[3], request42.node)
 
-        assertEquals(request5, requests[7])
+        assertEquals(request5, requests[6])
         assertEquals(nodes[4], request5.node)
+
+        assertEquals(request6, requests[7])
+        assertEquals(nodes[0], request6.node)
     }
 }

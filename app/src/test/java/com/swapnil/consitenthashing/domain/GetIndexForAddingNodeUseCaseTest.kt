@@ -36,7 +36,7 @@ class GetIndexForAddingNodeUseCaseTest {
     }
 
     @Test
-    fun `when the list has only one element and the new element has hashPosition greater than the existing element, return position 0`() {
+    fun `when the list has only one element and the new element has hashPosition greater than the existing element, return the last position`() {
         assertEquals(1, SUT.execute(listOf(createNodeUseCase.createNodeTesting("Title 1", "aaaaa")), HASH_SIZE - 1))
     }
 

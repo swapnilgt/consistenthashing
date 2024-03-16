@@ -2,9 +2,11 @@ package com.swapnil.consitenthashing.domain.node
 
 import com.swapnil.consitenthashing.domain.pojo.AbstractHashElement
 import com.swapnil.consitenthashing.exception.HashLocationOccupied
+import kotlin.jvm.Throws
 
 internal class GetIndexForAddingNodeUseCase {
 
+    @Throws(HashLocationOccupied::class)
     fun execute(
         list: List<AbstractHashElement>,
         targetHashPosition: Int
