@@ -19,8 +19,8 @@ class GetIndexForAddingRequestUseCaseTest {
     }
 
     @Test
-    fun `when the list has only one element and the new element has hashPosition smaller than the existing element, return 1`() {
-        assertEquals(1,
+    fun `when the list has only one element and the new element has hashPosition smaller than the existing element, return 0`() {
+        assertEquals(0,
             SUT.execute(listOf(createRequestUseCase.createRequest("Request 1")),
                 0))
     }
