@@ -26,16 +26,9 @@ internal class AddNodeUseCase(
 
         // Updating the node reference for the updated requests.
         rightMostRequestIndex?.let {
+            val currNode = requests[it].node
             var _localIndex = it
-            while(
-                // Handling the condition when we have completed the full circle and we have reached
-                // the index where the node was already set earlier.
-                requests[_localIndex].node != node &&
-                // Checking if the node is null or not.
-                (requests[_localIndex].node == null ||
-                // Check if the request node hash position is less than the current node hash position.
-                (requests[_localIndex].node != null &&
-                requests[_localIndex].node!!.hashPosition <= node.hashPosition))) {
+            while(requests[_localIndex].node == currNode) {
 
                 requests[_localIndex].node = node
                 // Going left in the ring.

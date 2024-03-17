@@ -21,10 +21,10 @@ internal class TestConstants {
         fun getMockedRequestList(createRequestUseCase: CreateRequestUseCase): List<Request> {
             return listOf(
                 createRequestUseCase.createRequestTesting("Request 1", "aaaac"), // 0
-                createRequestUseCase.createRequestTesting("Request 1", "aaaaf"), // 1
-                createRequestUseCase.createRequestTesting("Request 1", "aaaal"), // 2
-                createRequestUseCase.createRequestTesting("Request 1", "aaaam"), // 3
-                createRequestUseCase.createRequestTesting("Request 1", "aaaax") // 4
+                createRequestUseCase.createRequestTesting("Request 2", "aaaaf"), // 1
+                createRequestUseCase.createRequestTesting("Request 3", "aaaal"), // 2
+                createRequestUseCase.createRequestTesting("Request 4", "aaaam"), // 3
+                createRequestUseCase.createRequestTesting("Request 5", "aaaax") // 4
             )
         }
 
