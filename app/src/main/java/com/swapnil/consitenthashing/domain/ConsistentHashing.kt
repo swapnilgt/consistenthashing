@@ -14,8 +14,8 @@ import com.swapnil.consitenthashing.exception.RequestNotPresentException
 internal class ConsistentHashing(
     private val createNodeUseCase: CreateNodeUseCase,
     private val createRequestUseCase: CreateRequestUseCase,
-    private val getIndexForAddingRequestUseCase: GetIndexForAddingRequestUseCase,
-    private val getNodeIndexForAddingRequestUseCase: GetNodeIndexForAddingRequestUseCase
+    getIndexForAddingRequestUseCase: GetIndexForAddingRequestUseCase,
+    getNodeIndexForAddingRequestUseCase: GetNodeIndexForAddingRequestUseCase
 ) {
 
     private val nodes = mutableListOf<Node>()
