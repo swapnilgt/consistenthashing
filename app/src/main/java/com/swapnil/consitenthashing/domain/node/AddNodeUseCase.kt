@@ -12,6 +12,12 @@ internal class AddNodeUseCase(
     fun addNode(node: Node, nodes: MutableList<Node>, requests: List<Request>) {
         // Find the index for adding node.
         val addNodeIndex = getIndexForAddingNodeUseCase.execute(nodes, node.hashPosition)
+
+        val breakerNode = if(nodes.size == 1) {
+            nodes[0]
+        } else {
+            null
+        }
         // Adding the node.
         nodes.add(addNodeIndex, node)
 
@@ -28,7 +34,8 @@ internal class AddNodeUseCase(
         rightMostRequestIndex?.let {
             val currNode = requests[it].node
             var _localIndex = it
-            while(requests[_localIndex].node == currNode) {
+            while(requests[_localIndex].node == currNode && (breakerNode == null ||
+                        (requests[_localIndex].hashPosition > breakerNode.hashPosition))) {
 
                 requests[_localIndex].node = node
                 // Going left in the ring.

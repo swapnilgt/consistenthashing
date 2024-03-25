@@ -36,14 +36,20 @@ class GetRightMostRequestIndexForNewNodeTest {
     }
 
     @Test
-    fun `when the the new node has hash smaller than equal to the first element in the requests list, return 0`() {
+    fun `when the the new node has hash smaller than the first element in the requests list return size-1`() {
         val requests = getMockedRequestList(createRequestUseCase)
         val node1 = createNodeUseCase.createNodeTesting("Node 1", "aaaaa")
-        val node2 = createNodeUseCase.createNodeTesting("Node 1", "aaaac")
+
+        assertEquals(requests.size - 1, SUT.execute(requests, node1))
+
+    }
+
+    @Test
+    fun `when the the new node has hash equal to  the first element in the requests list, return 0`() {
+        val requests = getMockedRequestList(createRequestUseCase)
+        val node1 = createNodeUseCase.createNodeTesting("Node 1", "aaaac")
 
         assertEquals(0, SUT.execute(requests, node1))
-        assertEquals(0, SUT.execute(requests, node2))
-
     }
 
     @Test

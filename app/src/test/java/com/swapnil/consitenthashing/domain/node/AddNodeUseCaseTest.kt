@@ -49,7 +49,7 @@ class AddNodeUseCaseTest {
     }
 
     @Test
-    fun `when there are no nodes present and no requests are present, all the requests are updated with the newly added node`() {
+    fun `when there are no nodes present and requests are present, all the requests are updated with the newly added node`() {
         val nodes = mutableListOf<Node>()
         val requests = getMockedRequestList(createRequestUseCase)
 
@@ -98,6 +98,44 @@ class AddNodeUseCaseTest {
         assertEquals(nodes[4], request3.node)
         assertEquals(nodes[5], request4.node)
         assertEquals(newNode, request5.node)
+
+    }
+
+    @Test
+    fun `when a node is added to the left edge, we see the correct update -  case 2`() {
+
+        // Setup
+        val nodes = mutableListOf<Node>()
+        val requests = mutableListOf<Request>()
+        SUT.addNode(createNodeUseCase.createNodeTesting("Node 0", "aaaak"), nodes, requests)
+
+        val request0 = createRequestUseCase.createRequestTesting("Request 0", "aaaac") // 0
+        val request1 = createRequestUseCase.createRequestTesting("Request 1", "aaaaf") // 1
+        val request2 = createRequestUseCase.createRequestTesting("Request 2", "aaaal") // 2
+        val request3 = createRequestUseCase.createRequestTesting("Request 3", "aaaam") // 3
+        val request4 = createRequestUseCase.createRequestTesting("Request 4", "aaaax") // 4
+        val request5 = createRequestUseCase.createRequestTesting("Request 5", "aaaay") // 5
+
+        addRequestUseCase.addRequest(request0, nodes, requests)
+        addRequestUseCase.addRequest(request1, nodes, requests)
+        addRequestUseCase.addRequest(request2, nodes, requests)
+        addRequestUseCase.addRequest(request3, nodes, requests)
+        addRequestUseCase.addRequest(request4, nodes, requests)
+        addRequestUseCase.addRequest(request5, nodes, requests)
+
+
+        // Trigger
+        val newNode = createNodeUseCase.createNodeTesting("Node 1", "aaaaa")
+        SUT.addNode(newNode, nodes, requests)
+
+        // Test
+        assertEquals(2, nodes.size)
+        assertEquals(nodes[1], request0.node)
+        assertEquals(nodes[1], request1.node)
+        assertEquals(nodes[0], request2.node)
+        assertEquals(nodes[0], request3.node)
+        assertEquals(nodes[0], request4.node)
+        assertEquals(nodes[0], request5.node)
 
     }
 

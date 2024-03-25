@@ -9,7 +9,7 @@ internal class GetRightMostRequestIndexForNewNode() {
 
 
     @Throws(NoRequestsPresentException::class)
-    fun execute(requests: List<Request>, newNode: Node): Int {
+    fun execute(requests: List<Request>, incomingNode: Node): Int {
         if(requests.isEmpty()) {
             throw NoRequestsPresentException()
         }
@@ -20,13 +20,12 @@ internal class GetRightMostRequestIndexForNewNode() {
         }
 
         // Handling edge cases ...
-        if(requests[0].hashPosition >= newNode.hashPosition) {
-            return 0
-        } else if(requests[requests.size - 1].hashPosition <= newNode.hashPosition) {
+        if(requests[0].hashPosition > incomingNode.hashPosition
+            || requests[requests.size - 1].hashPosition <= incomingNode.hashPosition) {
             return requests.size - 1
         }
 
-        return binarySearchForRightMostIndex(requests, newNode)
+        return binarySearchForRightMostIndex(requests, incomingNode)
     }
 
     private fun binarySearchForRightMostIndex(list: List<Request>, newNode: Node): Int {
