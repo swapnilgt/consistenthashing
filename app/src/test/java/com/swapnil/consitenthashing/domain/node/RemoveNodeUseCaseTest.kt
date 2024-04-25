@@ -131,8 +131,113 @@ class RemoveNodeUseCaseTest {
         }
     }
 
-    // TODO -- remove node for which there were no requests present.
-    // TODO -- Test case for no requests present.
-    // TODO -- https://medium.com/airbnb-engineering/introducing-trio-part-i-7f5017a1a903 - use trio.
+    @Test
+    fun `when the only two nodes are present and right one is removed, all requests are updated to the left one`() {
+        // Setup
+        val nodes = mutableListOf<Node>()
+        val requests = mutableListOf<Request>()
 
+        // Adding a Node.
+        val node1 = createNodeUseCase.createNodeTesting("Node 1", "aaaac")
+        val node2 = createNodeUseCase.createNodeTesting("Node 2", "aaaak")
+        addNodeUseCase.addNode(node1, nodes, requests)
+        addNodeUseCase.addNode(node2, nodes, requests)
+
+        val request0 = createRequestUseCase.createRequestTesting("Request 0", "aaaad") // 0
+        val request1 = createRequestUseCase.createRequestTesting("Request 1", "aaaaf") // 1
+        val request2 = createRequestUseCase.createRequestTesting("Request 2", "aaaal") // 2
+        val request3 = createRequestUseCase.createRequestTesting("Request 3", "aaaam") // 3
+        val request4 = createRequestUseCase.createRequestTesting("Request 4", "aaaax") // 4
+        val request5 = createRequestUseCase.createRequestTesting("Request 5", "aaaay") // 5
+
+        addRequestUseCase.addRequest(request0, nodes, requests)
+        addRequestUseCase.addRequest(request1, nodes, requests)
+        addRequestUseCase.addRequest(request2, nodes, requests)
+        addRequestUseCase.addRequest(request3, nodes, requests)
+        addRequestUseCase.addRequest(request4, nodes, requests)
+        addRequestUseCase.addRequest(request5, nodes, requests)
+
+        // Execute
+        SUT.removeNode(node2, nodes, requests)
+
+        // Assert
+        assertEquals(1, nodes.size)
+        for(request in requests) {
+            assertEquals(node1, request.node)
+        }
+    }
+
+    @Test
+    fun `when the only two nodes are present and the one removed has no requests attached to it`() {
+
+        // Setup
+        val nodes = mutableListOf<Node>()
+        val requests = mutableListOf<Request>()
+
+        // Adding a Node.
+        val node1 = createNodeUseCase.createNodeTesting("Node 1", "aaaac")
+        val node2 = createNodeUseCase.createNodeTesting("Node 2", "aaaak")
+        addNodeUseCase.addNode(node1, nodes, requests)
+        addNodeUseCase.addNode(node2, nodes, requests)
+
+        val request0 = createRequestUseCase.createRequestTesting("Request 0", "aaaad") // 0
+        val request1 = createRequestUseCase.createRequestTesting("Request 1", "aaaaf") // 1
+        val request2 = createRequestUseCase.createRequestTesting("Request 2", "aaaah") // 2
+        val request3 = createRequestUseCase.createRequestTesting("Request 3", "aaaai") // 3
+        val request4 = createRequestUseCase.createRequestTesting("Request 4", "aaaaj") // 4
+        val request5 = createRequestUseCase.createRequestTesting("Request 5", "aaaak") // 5
+
+        addRequestUseCase.addRequest(request0, nodes, requests)
+        addRequestUseCase.addRequest(request1, nodes, requests)
+        addRequestUseCase.addRequest(request2, nodes, requests)
+        addRequestUseCase.addRequest(request3, nodes, requests)
+        addRequestUseCase.addRequest(request4, nodes, requests)
+        addRequestUseCase.addRequest(request5, nodes, requests)
+
+        // Execute
+        SUT.removeNode(node1, nodes, requests)
+        // Assert
+        assertEquals(1, nodes.size)
+        for(request in requests) {
+            assertEquals(node2, request.node)
+        }
+
+    }
+
+    @Test
+    fun `when the only two nodes are present and the one removed has no all the requests attached to it`() {
+
+        // Setup
+        val nodes = mutableListOf<Node>()
+        val requests = mutableListOf<Request>()
+
+        // Adding a Node.
+        val node1 = createNodeUseCase.createNodeTesting("Node 1", "aaaac")
+        val node2 = createNodeUseCase.createNodeTesting("Node 2", "aaaak")
+        addNodeUseCase.addNode(node1, nodes, requests)
+        addNodeUseCase.addNode(node2, nodes, requests)
+
+        val request0 = createRequestUseCase.createRequestTesting("Request 0", "aaaad") // 0
+        val request1 = createRequestUseCase.createRequestTesting("Request 1", "aaaaf") // 1
+        val request2 = createRequestUseCase.createRequestTesting("Request 2", "aaaah") // 2
+        val request3 = createRequestUseCase.createRequestTesting("Request 3", "aaaai") // 3
+        val request4 = createRequestUseCase.createRequestTesting("Request 4", "aaaaj") // 4
+        val request5 = createRequestUseCase.createRequestTesting("Request 5", "aaaak") // 5
+
+        addRequestUseCase.addRequest(request0, nodes, requests)
+        addRequestUseCase.addRequest(request1, nodes, requests)
+        addRequestUseCase.addRequest(request2, nodes, requests)
+        addRequestUseCase.addRequest(request3, nodes, requests)
+        addRequestUseCase.addRequest(request4, nodes, requests)
+        addRequestUseCase.addRequest(request5, nodes, requests)
+
+        // Execute
+        SUT.removeNode(node2, nodes, requests)
+        // Assert
+        assertEquals(1, nodes.size)
+        for(request in requests) {
+            assertEquals(node1, request.node)
+        }
+
+    }
 }
