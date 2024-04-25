@@ -30,7 +30,7 @@ fun DrawScope.node(
         )
     )
     drawCircle(
-        color = nodeViewData.bkgColor,
+        color = nodeViewData.borderColor,
         radius = nodeViewData.radius.toPx(),
         style = Stroke(width = 5.dp.toPx()),
         center = Offset(
