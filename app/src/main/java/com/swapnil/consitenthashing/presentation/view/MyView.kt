@@ -33,11 +33,11 @@ internal fun MyView(
 ) {
     Surface {
         Column {
-            Row(
+            Column(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(10.dp),
-                verticalAlignment = Alignment.CenterVertically
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Ring(
                     borderColor = borderColor,
