@@ -3,8 +3,9 @@ package com.swapnil.consitenthashing.domain.node
 import com.swapnil.consitenthashing.domain.pojo.Node
 import com.swapnil.consitenthashing.domain.pojo.Request
 import com.swapnil.consitenthashing.exception.NoRequestsPresentException
+import javax.inject.Inject
 
-internal class AddNodeUseCase(
+internal class AddNodeUseCase @Inject constructor(
     private val getIndexForAddingNodeUseCase: GetIndexForAddingNodeUseCase,
     private val getRightMostRequestIndexForNewNode: GetRightMostRequestIndexForNewNode
 ) {

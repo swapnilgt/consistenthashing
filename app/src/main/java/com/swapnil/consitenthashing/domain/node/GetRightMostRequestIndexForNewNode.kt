@@ -3,9 +3,10 @@ package com.swapnil.consitenthashing.domain.node
 import com.swapnil.consitenthashing.domain.pojo.Node
 import com.swapnil.consitenthashing.domain.pojo.Request
 import com.swapnil.consitenthashing.exception.NoRequestsPresentException
+import javax.inject.Inject
 import kotlin.jvm.Throws
 
-internal class GetRightMostRequestIndexForNewNode() {
+internal class GetRightMostRequestIndexForNewNode @Inject constructor() {
 
 
     @Throws(NoRequestsPresentException::class)

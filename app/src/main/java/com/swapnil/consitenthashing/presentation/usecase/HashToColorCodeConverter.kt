@@ -1,8 +1,9 @@
 package com.swapnil.consitenthashing.presentation.usecase
 
 import androidx.compose.ui.graphics.Color
+import javax.inject.Inject
 
-internal class HashToColorCodeConverter {
+internal class HashToColorCodeConverter @Inject constructor(){
 
     fun convert(hash: Int): Color {
         val colorCode = hash.toString(16).padStart(6, '0')

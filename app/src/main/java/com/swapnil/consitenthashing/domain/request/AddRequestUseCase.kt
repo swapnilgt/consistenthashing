@@ -3,8 +3,9 @@ package com.swapnil.consitenthashing.domain.request
 import com.swapnil.consitenthashing.domain.pojo.Node
 import com.swapnil.consitenthashing.domain.pojo.Request
 import com.swapnil.consitenthashing.exception.DuplicateRequestException
+import javax.inject.Inject
 
-internal class AddRequestUseCase(
+internal class AddRequestUseCase @Inject constructor(
     private val getIndexForAddingRequestUseCase: GetIndexForAddingRequestUseCase,
     private val getNodeIndexForAddingRequestUseCase: GetNodeIndexForAddingRequestUseCase
 ) {

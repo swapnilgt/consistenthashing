@@ -10,10 +10,13 @@ import com.swapnil.consitenthashing.domain.ConsistentHashing
 import com.swapnil.consitenthashing.domain.HASH_SIZE
 import com.swapnil.consitenthashing.presentation.pojo.NodeViewData
 import com.swapnil.consitenthashing.presentation.usecase.HashToColorCodeConverter
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-internal class MainViewModel(
+@HiltViewModel
+internal class MainViewModel @Inject constructor(
     private val consistentHashing: ConsistentHashing,
     private val hashToColorCodeConverter: HashToColorCodeConverter
 ): ViewModel() {

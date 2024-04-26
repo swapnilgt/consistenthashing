@@ -14,8 +14,9 @@ import com.swapnil.consitenthashing.exception.HashLocationOccupied
 import com.swapnil.consitenthashing.exception.NoNodePresentException
 import com.swapnil.consitenthashing.exception.NoRequestsPresentException
 import com.swapnil.consitenthashing.exception.RequestNotPresentException
+import javax.inject.Inject
 
-internal class ConsistentHashing(
+internal class ConsistentHashing @Inject constructor(
     private val createNodeUseCase: CreateNodeUseCase,
     private val createRequestUseCase: CreateRequestUseCase,
     private val addNodeUseCase: AddNodeUseCase,

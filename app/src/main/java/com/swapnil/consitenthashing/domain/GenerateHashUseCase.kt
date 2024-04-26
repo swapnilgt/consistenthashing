@@ -1,11 +1,12 @@
 package com.swapnil.consitenthashing.domain
 
+import javax.inject.Inject
 import kotlin.math.pow
 
 private const val G = 31
 val HASH_SIZE = 2.0.pow(20.0).toInt()
 
-internal class GenerateHashUseCase {
+internal class GenerateHashUseCase @Inject constructor(){
 
     fun generateHash(input: String): Int {
         // Assert that the string is greater of length >= 5

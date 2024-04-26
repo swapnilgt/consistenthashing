@@ -3,8 +3,9 @@ package com.swapnil.consitenthashing.domain.request
 import androidx.annotation.VisibleForTesting
 import com.swapnil.consitenthashing.domain.GenerateHashUseCase
 import com.swapnil.consitenthashing.domain.pojo.Request
+import javax.inject.Inject
 
-internal class CreateRequestUseCase(
+internal class CreateRequestUseCase @Inject constructor(
     private val generateHashUseCase: GenerateHashUseCase
 ) {
 

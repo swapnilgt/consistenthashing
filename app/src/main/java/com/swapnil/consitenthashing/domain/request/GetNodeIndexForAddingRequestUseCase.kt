@@ -2,8 +2,9 @@ package com.swapnil.consitenthashing.domain.request
 
 import com.swapnil.consitenthashing.domain.pojo.AbstractHashElement
 import com.swapnil.consitenthashing.exception.NoNodePresentException
+import javax.inject.Inject
 
-internal class GetNodeIndexForAddingRequestUseCase {
+internal class GetNodeIndexForAddingRequestUseCase @Inject constructor(){
 
     fun execute(
         list: List<AbstractHashElement>,

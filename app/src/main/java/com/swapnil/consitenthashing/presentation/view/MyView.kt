@@ -18,14 +18,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.coerceAtMost
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.swapnil.consitenthashing.MainViewModel
 import com.swapnil.consitenthashing.presentation.pojo.NodeViewData
 
 @Composable
-fun MyView(
+internal fun MyView(
     nodeViewData: List<NodeViewData> = emptyList(),
     requestViewData: List<NodeViewData> = emptyList(),
     borderColor: Color = Color.Red,
-    width: Dp = 100.dp
+    width: Dp = 100.dp,
+    mainViewModel: MainViewModel = viewModel()
 ) {
     Surface {
         Column {
@@ -48,7 +51,7 @@ fun MyView(
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Button(
-                        onClick = { /*TODO*/ },
+                        onClick = { mainViewModel.addRequest() },
                         enabled = nodeViewData.isNotEmpty()
                     ) {
                         Text(text = "Add Request")
@@ -60,7 +63,7 @@ fun MyView(
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Button(
-                        onClick = { /*TODO*/ }
+                        onClick = { mainViewModel.addNode() }
                     ) {
                         Text(text = "Add Node")
                     }

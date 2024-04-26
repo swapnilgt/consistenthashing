@@ -1,8 +1,9 @@
 package com.swapnil.consitenthashing.domain.request
 
 import com.swapnil.consitenthashing.domain.pojo.AbstractHashElement
+import javax.inject.Inject
 
-internal class GetIndexForAddingRequestUseCase {
+internal class GetIndexForAddingRequestUseCase @Inject constructor(){
 
     fun execute(
         list: List<AbstractHashElement>,

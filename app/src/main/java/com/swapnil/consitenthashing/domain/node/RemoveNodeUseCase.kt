@@ -4,8 +4,9 @@ import com.swapnil.consitenthashing.domain.pojo.Node
 import com.swapnil.consitenthashing.domain.pojo.Request
 import com.swapnil.consitenthashing.exception.NoNodePresentException
 import com.swapnil.consitenthashing.exception.NodeNotPresentException
+import javax.inject.Inject
 
-internal class RemoveNodeUseCase(
+internal class RemoveNodeUseCase @Inject constructor(
     private val getRightMostRequestIndexForNewNode: GetRightMostRequestIndexForNewNode
 ) {
 
