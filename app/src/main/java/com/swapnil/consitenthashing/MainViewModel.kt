@@ -1,5 +1,6 @@
 package com.swapnil.consitenthashing
 
+import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.graphics.Color
@@ -34,7 +35,13 @@ internal class MainViewModel @Inject constructor(
             consistentHashing.addNode()
             recomputeNodes()
             recomputeRequests()
+            logData()
         }
+    }
+
+    private fun logData() {
+        Log.d("TAG","Nodes: ${consistentHashing.getNodes()}")
+        Log.d("TAG","Requests: ${consistentHashing.getRequests()}")
     }
 
     fun addRequest() {
@@ -42,6 +49,7 @@ internal class MainViewModel @Inject constructor(
             // Adding a new request.
             consistentHashing.addRequest()
             recomputeRequests()
+            logData()
         }
     }
 
@@ -49,10 +57,10 @@ internal class MainViewModel @Inject constructor(
         // Compute the list of node data list.
         nodeDataList.value = consistentHashing.getNodes().map {
             NodeViewData(
-                bkgColor = hashToColorCodeConverter.convert(it.hashCode()),
+                bkgColor = hashToColorCodeConverter.convert(it.hashPosition),
                 borderColor = Color.Black,
                 radius = 20.dp,
-                radianVal = (it.hashCode().toFloat() / HASH_SIZE) * Math.PI.toFloat() * 2
+                radianVal = (it.hashPosition.toFloat() / HASH_SIZE) * Math.PI.toFloat() * 2
             )
         }
     }
@@ -62,11 +70,11 @@ internal class MainViewModel @Inject constructor(
         requestNodeDataList.value = consistentHashing.getRequests().map {
             NodeViewData(
                 bkgColor = it.node?.let {
-                        node -> hashToColorCodeConverter.convert(node.hashCode())
+                        node -> hashToColorCodeConverter.convert(node.hashPosition)
                 } ?: Color.Gray,
                 borderColor = Color.DarkGray,
                 radius = 15.dp,
-                radianVal = (it.hashCode().toFloat() / HASH_SIZE) * Math.PI.toFloat() * 2
+                radianVal = (it.hashPosition.toFloat() / HASH_SIZE) * Math.PI.toFloat() * 2
             )
         }
     }
