@@ -45,7 +45,7 @@ internal class ConsistentHashing @Inject constructor(
 
     @Throws(NoNodePresentException::class)
     fun addRequest() {
-        createRequestUseCase.createRequest("Request ${nodes.size + 1}").let {
+        createRequestUseCase.createRequest("Request ${requests.size + 1}").let {
             addRequestUseCase.addRequest(it, nodes, requests)
         }
     }

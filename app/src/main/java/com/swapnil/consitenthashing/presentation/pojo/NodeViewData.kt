@@ -7,5 +7,6 @@ data class NodeViewData(
     val bkgColor: Color,
     val borderColor: Color,
     val radius: Dp,
-    val radianVal: Float
+    val radianVal: Float,
+    val text: String = "Node"
 )

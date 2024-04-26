@@ -60,7 +60,8 @@ internal class MainViewModel @Inject constructor(
                 bkgColor = hashToColorCodeConverter.convert(it.hashPosition),
                 borderColor = Color.Black,
                 radius = 20.dp,
-                radianVal = (it.hashPosition.toFloat() / HASH_SIZE) * Math.PI.toFloat() * 2
+                radianVal = (it.hashPosition.toFloat() / HASH_SIZE) * Math.PI.toFloat() * 2,
+                text = it.title
             )
         }
     }
@@ -74,7 +75,8 @@ internal class MainViewModel @Inject constructor(
                 } ?: Color.Gray,
                 borderColor = Color.DarkGray,
                 radius = 15.dp,
-                radianVal = (it.hashPosition.toFloat() / HASH_SIZE) * Math.PI.toFloat() * 2
+                radianVal = (it.hashPosition.toFloat() / HASH_SIZE) * Math.PI.toFloat() * 2,
+                text = it.title
             )
         }
     }
