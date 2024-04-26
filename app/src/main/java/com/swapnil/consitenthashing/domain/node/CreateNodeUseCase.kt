@@ -26,4 +26,13 @@ internal data class CreateNodeUseCase @Inject constructor(
         return node
     }
 
+    @VisibleForTesting
+    fun createNodeTestingWithHash(title: String, hashPosition: Int): Node {
+        val node = Node(title).apply {
+            this.hashPosition = hashPosition
+        }
+
+        return node
+    }
+
 }

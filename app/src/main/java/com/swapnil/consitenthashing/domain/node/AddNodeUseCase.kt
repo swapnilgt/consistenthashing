@@ -35,6 +35,16 @@ internal class AddNodeUseCase @Inject constructor(
         rightMostRequestIndex?.let {
             val currNode = requests[it].node
             var _localIndex = it
+
+            // Check for the existing values of the request.
+            requests[_localIndex].node?.let {
+                if(it.hashPosition >= requests[_localIndex].hashPosition
+                    && it.hashPosition < node.hashPosition ) {
+                    return
+                }
+            }
+
+            // Iterating and updating the values.
             while(requests[_localIndex].node == currNode && (breakerNode == null ||
                         (requests[_localIndex].hashPosition > breakerNode.hashPosition))) {
 

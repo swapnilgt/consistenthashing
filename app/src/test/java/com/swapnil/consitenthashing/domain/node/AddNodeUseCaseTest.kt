@@ -224,4 +224,46 @@ class AddNodeUseCaseTest {
         assertEquals(nodes[4], request35.node)
         assertEquals(nodes[5], request4.node)
     }
+
+    @Test
+    fun `when the new node added is at the end and it has no request takers`() {
+
+        // Setup
+        val nodes = mutableListOf<Node>()
+        val requests = mutableListOf<Request>()
+
+        val node1 = createNodeUseCase.createNodeTestingWithHash("Node 1", 777368)
+        val node2 = createNodeUseCase.createNodeTestingWithHash("Node 2", 279523)
+        val node3 = createNodeUseCase.createNodeTestingWithHash("Node 3", 351924)
+        val node4 = createNodeUseCase.createNodeTestingWithHash("Node 4", 914691)
+
+        val request1 = createRequestUseCase.createRequestTestingWithHash("Request 1", 132138) // 0
+        val request2 = createRequestUseCase.createRequestTestingWithHash("Request 2", 41340) // 1
+        val request3 = createRequestUseCase.createRequestTestingWithHash("Request 3", 22596) // 2
+        val request4 = createRequestUseCase.createRequestTestingWithHash("Request 4", 313554) // 31
+        val request5 = createRequestUseCase.createRequestTestingWithHash("Request 5", 765383) // 32
+        val request6 = createRequestUseCase.createRequestTestingWithHash("Request 6", 170722) // 33
+
+        SUT.addNode(node1, nodes, requests)
+        SUT.addNode(node2, nodes, requests)
+        SUT.addNode(node3, nodes, requests)
+
+        addRequestUseCase.addRequest(request1, nodes, requests)
+        addRequestUseCase.addRequest(request2, nodes, requests)
+        addRequestUseCase.addRequest(request3, nodes, requests)
+        addRequestUseCase.addRequest(request4, nodes, requests)
+        addRequestUseCase.addRequest(request5, nodes, requests)
+        addRequestUseCase.addRequest(request6, nodes, requests)
+
+        // Trigger
+        SUT.addNode(node4, nodes, requests)
+
+        // Test
+        assertEquals(node2, request1.node)
+        assertEquals(node2, request2.node)
+        assertEquals(node2, request3.node)
+        assertEquals(node3, request4.node)
+        assertEquals(node1, request5.node)
+
+    }
 }

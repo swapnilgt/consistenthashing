@@ -24,4 +24,13 @@ internal class CreateRequestUseCase @Inject constructor(
 
         return request
     }
+
+    @VisibleForTesting
+    fun createRequestTestingWithHash(title: String, hashPosition: Int): Request {
+        val request = Request(title).apply {
+            this.hashPosition = hashPosition
+        }
+
+        return request
+    }
 }
