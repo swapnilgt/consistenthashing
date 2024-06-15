@@ -267,3 +267,11 @@ class AddNodeUseCaseTest {
 
     }
 }
+
+/*
+Nodes: [Node(title='Node 2', hashPosition=384760), Node(title='Node 6', hashPosition=443146), Node(title='Node 1', hashPosition=771776), Node(title='Node 5', hashPosition=820406), Node(title='Node 3', hashPosition=869357), Node(title='Node 4', hashPosition=926385)]
+
+Requests: [Request(title='Request 2', hashPosition=756192, node=Node(title='Node 1', hashPosition=771776)), Request(title='Request 3', hashPosition=760498, node=Node(title='Node 1', hashPosition=771776)), Request(title='Request 6', hashPosition=771785, node=Node(title='Node 5', hashPosition=820406)), Request(title='Request 4', hashPosition=786346, node=Node(title='Node 5', hashPosition=820406)), Request(title='Request 1', hashPosition=837794, node=Node(title='Node 3', hashPosition=869357)), Request(title='Request 5', hashPosition=931050, node=Node(title='Node 6', hashPosition=443146))]
+
+Request 5 is incorrectly allocated to Node6 - Node 6 added at the very last
+ */
