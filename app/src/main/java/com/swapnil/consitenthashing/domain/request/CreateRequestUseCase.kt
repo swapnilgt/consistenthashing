@@ -33,4 +33,9 @@ internal class CreateRequestUseCase @Inject constructor(
 
         return request
     }
+
+    @VisibleForTesting
+    private fun myTestMethod(): Int {
+        return 0
+    }
 }
